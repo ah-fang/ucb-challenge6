@@ -33,8 +33,6 @@ var city;
 //     //cityBtn.addEventListener("click", functionThatCallsApiByCityName);
 // }
 
-// cityFormEl.addEventListener("submit", formSubmitHandler); 
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //search button
@@ -209,8 +207,7 @@ function currentForecast(data) {
     // wind speed in mph
     var currentWindSpeed = document.querySelector("#wind-now")
     var windSpeed = data.current.wind_speed;
-    // console.log(windSpeed);
-    currentWindSpeed.textContent = "Wind Speed: " + windSpeed + " mph";
+    currentWindSpeed.textContent = "Wind: " + windSpeed + " mph";
 
     // humidity in %
     var currentHumidityEl = document.querySelector("#humidity-now");
@@ -218,7 +215,7 @@ function currentForecast(data) {
 
     // uv index
     var currentUVI = document.querySelector("#uv-index-now");
-    currentUVI.textContent = "UV Index: " + data.current.uvi;
+    currentUVI.textContent = data.current.uvi;
     
     //stoplight-code UV index by range
     if (data.current.uvi <= 2) {
@@ -236,7 +233,6 @@ function currentForecast(data) {
 function fiveDayForecast(data) {
 //note: i begins at 1 instead of 0 to ensure no overlap between daily and 5-day
     for (var i = 1; i < 6; i++) {
-
         var dayCard = document.createElement("div");
         dayCard.className = "col-12 col-sm-4 col-lg-2 m-2 bg-dark text-light"
         dayCard.id = "forecast-card";
@@ -280,4 +276,5 @@ function fiveDayForecast(data) {
 
 }
 
+//fetch previous searches from localStorage
 cityBtnList();

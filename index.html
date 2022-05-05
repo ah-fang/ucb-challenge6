@@ -9,8 +9,8 @@
     <title>Weather</title>
 </head>
 <body>
-    <header class="bg-dark">
-        <h1 class="header text-light text-center p-2">Weather Dashboard</h1>
+    <header>
+        <h1 class="text-light text-center p-2">Weather Dashboard</h1>
     </header>
 
     <!-- Search Sidebar-->
@@ -23,10 +23,12 @@
                 <button id="search-btn" type="submit" class="btn-primary">Search</button>
               </form>
             </div>
+
+            <!-- empty div for past cities -->
+            <div id="city-list" class="d-flex flex-column"></div>
         </div>
 
-        <!-- empty div for past cities -->
-        <div id="city-list" class="d-flex flex-column"></div>
+
         
         <!-- Current and 5-day container-->
         <div class="col-12 col-md-8 p-2">
@@ -42,7 +44,11 @@
                     <li id="temp-now" class="list-group-item p-1">Temp: </li>
                     <li id="wind-now" class="list-group-item p-1">Wind: </li>
                     <li id="humidity-now" class="list-group-item p-1">Humidity: </li>
-                    <li id="uv-index-now" class="list-group-item p-1">UV Index: </li>
+                    <div class="list-group-item p-1 d-flex">
+                        <p>UV Index:</p>
+                        <p id="uv-index-now" class="uv"> </p>
+
+                    </div>
                 </ul>
             </div>
 

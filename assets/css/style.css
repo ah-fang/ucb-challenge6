@@ -1,3 +1,6 @@
+header {
+    background: linear-gradient(to right, rgb(50, 80, 200), rgb(20, 0, 60));
+}
 #search {
     padding-left: 20px;
 }
@@ -17,6 +20,10 @@ input {
     border-bottom: 2px solid black;
 }
 
+.uv {
+    margin-left: 10px;
+    border-radius: 10px;
+}
 .list-group {
     min-width: 150px;
 }
