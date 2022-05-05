@@ -12,72 +12,49 @@
     <header class="bg-dark">
         <h1 class="header text-light text-center p-2">Weather Dashboard</h1>
     </header>
-    <main class="d-flex flex-row justify-space-between">
+
+    <!-- Search Sidebar-->
+    <main class="d-flex flex-row flex-wrap justify-space-between">
         <div class="col-12 col-md-4 p-2">
             <div class="card">
-              <h3 class="card-header text-uppercase">Search For a City:</h3>
-              <form id="user-form" class="card-body">
-                <input name="username" type="text" id="username" placeholder="Enter city name..." autofocus="true" class="form-input">
-                <button type="submit" class="btn-primary">Search</button>
+              <h3 id="search">Search For a City:</h3>
+              <form id="city-form" class="card-body">
+                <input name="city-name" type="text" id="city-name" placeholder="Enter city name..." autofocus="true" class="form-input">
+                <button id="search-btn" type="submit" class="btn-primary">Search</button>
               </form>
             </div>
         </div>
 
-        <div class="col-12 col-md-8 p-2 border">
-            <h2 class="subtitle">Text<span id="city-name-date"></span></h2>
-            <div id="city-info">
-                <ul class="list-group">
-                    <li id="temp-now" class="list-group-item"></li>
-                    <li id="wind-now" class="list-group-item"></li>
-                    <li id="humidity-now" class="list-group-item"></li>
-                    <li id="uv-index-now" class="list-group-item"></li>
+        <!-- empty div for past cities -->
+        <div id="city-list" class="d-flex flex-column"></div>
+        
+        <!-- Current and 5-day container-->
+        <div class="col-12 col-md-8 p-2">
+            
+            <!-- Current forecast -->
+            <div id="city-info" class="border p-1">
+                <div class="d-flex align-items-center">
+                    <h2 id="today-name">Search for a City...</h2>
+                    <h3 id="today-date"></h3>
+                </div>
+
+                <ul id="daily-list" class="list-group">
+                    <li id="temp-now" class="list-group-item p-1">Temp: </li>
+                    <li id="wind-now" class="list-group-item p-1">Wind: </li>
+                    <li id="humidity-now" class="list-group-item p-1">Humidity: </li>
+                    <li id="uv-index-now" class="list-group-item p-1">UV Index: </li>
                 </ul>
             </div>
 
-            <h3>5-Day Forecast: </h3>
-            <div id="five-day" class="d-flex text-light justify-content-around">
-                <div class="bg-dark list-group">
-                    <p class="px-2">00/00/0000</p>
-                    <p class="icon px-2">ICON</p>
-                    <p class="px-2 ">Temp: </p>
-                    <p class="px-2">Wind: </p>
-                    <p class="px-2">Humidity: </p>
-                </div>
-                
-                <div class="bg-dark list-group">
-                    <p class="px-2">00/00/0000</p>
-                    <p class="icon px-2">ICON</p>
-                    <p class="px-2 ">Temp: </p>
-                    <p class="px-2">Wind: </p>
-                    <p class="px-2">Humidity: </p>
-                </div>
+            <!-- Five Day Forecast -->
+            <h3 id="five-day-title">5-Day Forecast: </h3>
+            <div class="row" id="five-day-forecast"></div>
 
-                <div class="bg-dark list-group">
-                    <p class="px-2">00/00/0000</p>
-                    <p class="icon px-2">ICON</p>
-                    <p class="px-2 ">Temp: </p>
-                    <p class="px-2">Wind: </p>
-                    <p class="px-2">Humidity: </p>
-                </div>
-
-                <div class="bg-dark list-group">
-                    <p class="px-2">00/00/0000</p>
-                    <p class="icon px-2">ICON</p>
-                    <p class="px-2 ">Temp: </p>
-                    <p class="px-2">Wind: </p>
-                    <p class="px-2">Humidity: </p>
-                </div>
-
-                <div class="bg-dark list-group">
-                    <p class="px-2">00/00/0000</p>
-                    <p class="icon px-2">ICON</p>
-                    <p class="px-2 ">Temp: </p>
-                    <p class="px-2">Wind: </p>
-                    <p class="px-2">Humidity: </p>
-                </div>
-            </div>            
         </div>
   
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./assets/js/homepage.js"></script>
 </body>
 </html>
+
