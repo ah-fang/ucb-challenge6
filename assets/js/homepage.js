@@ -35,10 +35,9 @@ var city;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//search button
-var searchButtonEl = document.querySelector("#search-btn");
+var searchButton = document.querySelector("#search-btn");
 
-searchButtonEl.addEventListener("click", function(event) {
+searchButton.addEventListener("click", function(event) {
     // var cityInputEl = document.querySelector("#cityInput");
     var cityName = cityInputEl.value.trim();
    
@@ -69,33 +68,63 @@ function cityBtnList() {
     var cityBtnDiv = document.querySelector("#city-list");
 
     if (cityList) {
-        for (var i = 1; i < cityList.length; i++) {
-            var cityBtn = document.createElement("button");
+        //"let" is necessary over "var" here to escape closure issue
+        for (let i = 0; i < cityList.length; i++) {
+            let cityBtn = document.createElement("button");
             cityBtn.textContent = cityList[i];  
-            cityBtn.className = "city-button"
+            cityBtn.className = "city-button";
+            cityBtn.setAttribute("value", cityBtn.textContent);
             cityBtnDiv.appendChild(cityBtn);
             cityBtn.addEventListener("click", function () {
-
-                // var cityInputEl = document.querySelector("#cityInput");
-                // var cityName = cityInputEl.value;
+                console.log(cityBtn.textContent);
+                
+                //when these buttons are pushed, the city requested in URL should match what the button reads
+                var cityName = cityBtn.textContent;
 
                 var cards = document.getElementById("forecast-card");
                 if (cards) {
                     clearCards();
                 }
-                geoLocate(cityList[i]);
+                geoLocate(cityName);
 
             })
         }
     }
 }
 
+    //     //Create an input type dynamically.
+    //     function addOnClick(element, currentName) {
+    //         element.onClick = function () {
+    //            alert("button is " + names[currentName].msg);
+    //       };
+    //     };   
+        
+        
+    //     //solution
+    //     element.onclick = function () { // Note this is a function
+    //         alert("button is "+ names[name].msg);
+    //     };
+    // // Should be wrapped by a function that passes in the name you're interested in:
+
+    // addOnClickToElement(element,name);
+    // // Then add this named function at the same scope as 'add' so that names is accessible:
+
+    // function addOnClickToElement(element,name) { // Note this is a function
+    //     element.onclick = function(){
+    //         alert("button is "+ names[name].msg);
+    //     };
+    // }
+
+
+
+
+//makes new city buttons on the page when a city is searched
 function makeCityBtn(cityName) {
     var cityBtnDiv = document.querySelector("#city-list");
 
     var cityBtn = document.createElement("button");
     cityBtn.textContent = cityName;
-    cityBtn.className = "city-button"
+    cityBtn.className = "city-button";
     cityBtnDiv.appendChild(cityBtn);
     
     cityBtn.addEventListener("click", function () {
@@ -107,6 +136,7 @@ function makeCityBtn(cityName) {
     })
 }
 
+//checks for new cities and saves to storage
 function saveCity(cityName) {
     var cityList = JSON.parse(localStorage.getItem("cityList"));
     //saves only new cities to local storage
