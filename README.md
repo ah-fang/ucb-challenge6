@@ -7,3 +7,6 @@ A weather site which takes in a city name and outputs: <br>
 Previously searched cities are saved to local storage and show on the page as clickable buttons. <br>
 
 Link: https://ah-fang.github.io/ucb-challenge6/
+
+## Screenshot
+![screenshot](./assets/screenshot.png)
