@@ -1,4 +1,4 @@
-# ucb-challenge6
+# Weather Site
 
 ## Description
 A weather site which takes in a city name and outputs: <br>
@@ -6,7 +6,7 @@ A weather site which takes in a city name and outputs: <br>
 2. The 5-day forecast for the above conditions. <br>
 Previously searched cities are saved to local storage and show on the page as clickable buttons. <br>
 
-Link: https://ah-fang.github.io/ucb-challenge6/
+Link: https://ah-fang.github.io/weather-site/
 
 ## Screenshot
 ![screenshot](./assets/screenshot.png)
